@@ -29,9 +29,9 @@ for i in range(0, len(coupon_blocks)):
     couponField = driver.find_element(By.ID, COUPON_CSS + str(i))
     couponField.send_keys(coupon_blocks[i])
 
-# wait for button to be clickable 
+# wait for button to be clickable (goto next page)
 driver.implicitly_wait(60)
-button_nextPageLink = driver.find_element(By.id, "nextPageLink")
+button_nextPageLink = driver.find_element(By.ID, "nextPageLink")
 button_nextPageLink.click()
 
 
