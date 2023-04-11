@@ -1,5 +1,5 @@
 import os
 from selenium import webdriver
 
-os.environ['PATH'] += ':/usr/local/bin'
+os.environ['PATH'] += r':/usr/local/bin'
 driver = webdriver.Chrome()
