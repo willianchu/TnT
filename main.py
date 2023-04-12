@@ -97,9 +97,8 @@ print("Overall Satisfaction")
 driver.implicitly_wait(LONG_WAIT)
 
 # click on the first radio option
-clickable_radio = driver.find_element(By.XPATH, '//*[@label="Strongly Agree"]')
-print(clickable_radio)
-# clickable_radio.click()
+clickable_radio = driver.find_element(By.XPATH, '//*[text()="5"]')
+clickable_radio.click()
 # time.sleep(SHORT_WAIT)
 # print("clicking on the next button Overall Satisfaction")
 # clickable_next = driver.find_element(By.ID, "nextPageLink")
