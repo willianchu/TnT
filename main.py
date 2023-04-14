@@ -96,14 +96,20 @@ print("Overall Satisfaction")
 #wait for the button to be clickable
 driver.implicitly_wait(LONG_WAIT)
 
-# click on the first radio option
-clickable_radio = driver.find_element(By.XPATH, '//*[text()="5"]')
+# find and click on thelabel="Strongly Agree"
+clickable_radio = driver.find_element(By.XPATH, '//*[text()="Strongly Agree"]')
 clickable_radio.click()
-# time.sleep(SHORT_WAIT)
-# print("clicking on the next button Overall Satisfaction")
-# clickable_next = driver.find_element(By.ID, "nextPageLink")
-# clickable_next.click()
+click_on_5 = driver.find_element(By.XPATH, '//*[text()="5"]')
+click_on_5.click()
 
+time.sleep(SHORT_WAIT)
+
+# search_by_id = driver.find_element(By.ID, "surveyApp_body")
+# search_by_id.click()
+time.sleep(SHORT_WAIT)
+# search textarea#commentArea_441261
+search_by_id = driver.find_element(By.ID, "commentArea_441261")
+search_by_id.send_keys("I love the imported products, quality and freshness of the products. It is great to have food ready to take out and eat. I feel inspired to cook and learn more about asian food.")
 
 
 # wait for 60 seconds unconditionally that the page loads or not
