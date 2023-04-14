@@ -17,9 +17,9 @@ COUPON_CSS = "promptInput_397048_"
 coupon_blocks = COUPON_CODE.split("_")
 EMAIL = "user@hotmail.com"
 PHONE = "1234567890"
-SHORT_WAIT = 1
-MEDIUM_WAIT = 4
-LONG_WAIT = 60
+SHORT_WAIT = .5
+MEDIUM_WAIT = 2
+LONG_WAIT = 4
 
 def next_page():
     print("clicking on the next page button >>>")
@@ -30,6 +30,10 @@ def next_page():
 def wait_page_load():
     print("wait for the page to load")
     time.sleep(LONG_WAIT)
+
+def find_and_click(xpath):
+    clickable = driver.find_element(By.XPATH, xpath)
+    clickable.click()
 
 print("getting the page")
 driver.get('https://www.storeopinion.ca')
@@ -92,14 +96,20 @@ click_on_5.click()
 
 
 
-# search_by_id = driver.find_element(By.ID, "surveyApp_body")
-# search_by_id.click()
+
 time.sleep(SHORT_WAIT)
-# search textarea#commentArea_441261
 search_by_id = driver.find_element(By.ID, "commentArea_441261")
 search_by_id.send_keys("I love the imported products, quality and freshness of the products. It is great to have food ready to take out and eat. I feel inspired to cook and learn more about asian food.")
 
 next_page()
+
+wait_page_load()
+
+find_and_click('//*[text()="Yes, continue with the survey for entry into the draw!"]')
+next_page()
+
+
+
 
 
 # wait for 60 seconds unconditionally that the page loads or not
