@@ -21,6 +21,11 @@ SHORT_WAIT = 1
 MEDIUM_WAIT = 4
 LONG_WAIT = 60
 
+next_Page() {
+    time.sleep(SHORT_WAIT)
+    var next_button = document.getElementById("nextPageLink");
+    next_button.click();
+
 print("getting the page")
 driver.get('https://www.storeopinion.ca')
 
