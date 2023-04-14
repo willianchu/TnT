@@ -21,10 +21,11 @@ SHORT_WAIT = 1
 MEDIUM_WAIT = 4
 LONG_WAIT = 60
 
-next_Page() {
+def next_page():
+    print("clicking on the next page button >>>")
     time.sleep(SHORT_WAIT)
-    var next_button = document.getElementById("nextPageLink");
-    next_button.click();
+    button_nextPageLink = driver.find_element(By.ID, "nextPageLink")
+    button_nextPageLink.click()
 
 print("getting the page")
 driver.get('https://www.storeopinion.ca')
@@ -44,9 +45,10 @@ for i in range(0, len(coupon_blocks)):
     couponField.send_keys(coupon_blocks[i])
     time.sleep(SHORT_WAIT)
 
-print("clicking on the next button coupon")
-button_nextPageLink = driver.find_element(By.ID, "nextPageLink")
-button_nextPageLink.click()
+# print("clicking on the next button coupon")
+# button_nextPageLink = driver.find_element(By.ID, "nextPageLink")
+# button_nextPageLink.click()
+next_page()
 
 print("wait for 60 seconds implicitly")
 #wait for the button to be clickable
@@ -56,10 +58,11 @@ WebDriverWait(driver, MEDIUM_WAIT).until(EC.element_to_be_clickable((By.XPATH, '
 print("clicking on the yes button")
 clickable_yes = driver.find_element(By.XPATH, '//*[text()="Yes"]')
 clickable_yes.click()
-time.sleep(MEDIUM_WAIT)
-print("clicking on the next button age")
-clickable_next = driver.find_element(By.ID, "nextPageLink")
-clickable_next.click()
+# time.sleep(MEDIUM_WAIT)
+# print("clicking on the next button age")
+# clickable_next = driver.find_element(By.ID, "nextPageLink")
+# clickable_next.click()
+next_page()
 
 print("Purchase Location")
 #wait for the button to be clickable
@@ -68,10 +71,11 @@ driver.implicitly_wait(LONG_WAIT)
 # click on the first radio option
 clickable_radio = driver.find_element(By.XPATH, '//*[text()="Shop in the store"]')
 clickable_radio.click()
-time.sleep(SHORT_WAIT)
-print("clicking on the next button Shopping in the store")
-clickable_next = driver.find_element(By.ID, "nextPageLink")
-clickable_next.click()
+# time.sleep(SHORT_WAIT)
+# print("clicking on the next button Shopping in the store")
+# clickable_next = driver.find_element(By.ID, "nextPageLink")
+# clickable_next.click()
+next_page()
 
 print("Type of Purchase")
 #wait for the button to be clickable
@@ -80,10 +84,11 @@ driver.implicitly_wait(LONG_WAIT)
 # click on the first radio option
 clickable_radio = driver.find_element(By.XPATH, '//*[text()="use self-checkout for your purchase?"]')
 clickable_radio.click()
-time.sleep(SHORT_WAIT)
-print("clicking on the next button self-checkout")
-clickable_next = driver.find_element(By.ID, "nextPageLink")
-clickable_next.click()
+# time.sleep(SHORT_WAIT)
+# print("clicking on the next button self-checkout")
+# clickable_next = driver.find_element(By.ID, "nextPageLink")
+# clickable_next.click()
+next_page()
 
 print("XP Grade")
 #wait for the button to be clickable
@@ -92,10 +97,11 @@ driver.implicitly_wait(LONG_WAIT)
 # click on the first radio option
 clickable_radio = driver.find_element(By.XPATH, '//*[text()="10"]')
 clickable_radio.click()
-time.sleep(SHORT_WAIT)
-print("clicking on the next button XP Grade")
-clickable_next = driver.find_element(By.ID, "nextPageLink")
-clickable_next.click()
+# time.sleep(SHORT_WAIT)
+# print("clicking on the next button XP Grade")
+# clickable_next = driver.find_element(By.ID, "nextPageLink")
+# clickable_next.click()
+next_page()
 
 print("Overall Satisfaction")
 #wait for the button to be clickable
@@ -107,7 +113,7 @@ clickable_radio.click()
 click_on_5 = driver.find_element(By.XPATH, '//*[text()="5"]')
 click_on_5.click()
 
-time.sleep(SHORT_WAIT)
+
 
 # search_by_id = driver.find_element(By.ID, "surveyApp_body")
 # search_by_id.click()
@@ -115,6 +121,8 @@ time.sleep(SHORT_WAIT)
 # search textarea#commentArea_441261
 search_by_id = driver.find_element(By.ID, "commentArea_441261")
 search_by_id.send_keys("I love the imported products, quality and freshness of the products. It is great to have food ready to take out and eat. I feel inspired to cook and learn more about asian food.")
+
+next_page()
 
 
 # wait for 60 seconds unconditionally that the page loads or not
